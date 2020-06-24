@@ -10,7 +10,7 @@ class BookGridDetails extends React.Component {
       );
     });
     return (
-      <section className="book-details">
+      <section className="book-grid-details">
         <div className="container">
           <ul className="books-grid">{bookList}</ul>
         </div>

@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import HomePage from "./pages/HomePage.js";
 import BooksPage from "./pages/BooksPage.js";
 import DetailsPage from "./pages/DetailsPage.js";
-import data from "./data/data.json";
 import ContactPage from "./pages/ContactPage.js";
 import CartPage from "./pages/CartPage.js";
-import Header from "./components/Header.js";
+import SellerPage from "./pages/SellerPage.js";
+import SignInPage from "./pages/SignInPage.js";
+import SignUpPage from "./pages/SignUpPage.js";
 
+import data from "./data/data.json";
 
 class App extends React.Component {
   state = {
@@ -16,7 +19,6 @@ class App extends React.Component {
   };
   render() {
     return (
-    
       <BrowserRouter>
         <Header />
         <>
@@ -24,21 +26,28 @@ class App extends React.Component {
             exact
             path="/signIn"
             render={(props) => {
-              return <HomePage {...props} books={this.state.books}/>;
+              return <SignInPage {...props} />;
             }}
           />
           <Route
             exact
             path="/signUp"
             render={(props) => {
-              return <HomePage {...props} books={this.state.books}/>;
+              return <SignUpPage {...props} />;
+            }}
+          />
+          <Route
+            exact
+            path="/seller"
+            render={(props) => {
+              return <SellerPage {...props} books={this.state.books} />;
             }}
           />
           <Route
             exact
             path="/about"
             render={(props) => {
-              return <HomePage {...props} books={this.state.books}/>;
+              return <HomePage {...props} books={this.state.books} />;
             }}
           />
           <Route
@@ -59,7 +68,7 @@ class App extends React.Component {
             exact
             path="/contact"
             render={(props) => {
-              return <ContactPage {...props}  />;
+              return <ContactPage {...props} />;
             }}
           />
           <Route
